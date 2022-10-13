@@ -1,11 +1,16 @@
 package curso.api.rest.model;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Usuario {
@@ -19,6 +24,9 @@ public class Usuario {
 	private String senha;
 	
 	private String nome;
+	
+	@OneToMany(mappedBy = "usuario", orphanRemoval = true, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private List<Telefone> telefone = new ArrayList<Telefone>();
 
 	public Long getId() {
 		return id;
@@ -50,6 +58,14 @@ public class Usuario {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	
+	public List<Telefone> getTelefone() {
+		return telefone;
+	}
+	
+	public void setTelefone(List<Telefone> telefone) {
+		this.telefone = telefone;
 	}
 
 	@Override

@@ -11,6 +11,7 @@
 	<groupId>curso.api.rest</groupId>
 	<artifactId>cursospringrestapi</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 	<name>cursospringrestapi</name>
 	<description>Curso Api Rest Spring boot</description>
 	<properties>
